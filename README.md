@@ -4,6 +4,12 @@ v1.0
 
 Quick shell script to probe IPs of the main global CDN providers for a specific website.
 
+## Usage
+
+```
+$ ./cdnprobe.sh domain [path] [schema]
+```
+
 ## Technique
 
 `cdnips.json` contains a sample of IPs from each CDN provider. It was constructed by taking the minimum set of IPs that "seems to cover" most websites of a CDN (for those websites that are published in non-dedicated IPs). This means that, by probing each of these IPs with GET requests setting a custom SNI and Host header with the requested site, we should be able to find a site quickly in the top CDNs, if it exists there in "shared IP space". 
