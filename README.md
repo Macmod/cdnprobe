@@ -16,7 +16,7 @@ $ ./cdnprobe.sh domain [path] [schema]
 
 In the "ideal scenario", all edge servers of a CDN provider would respond to all sites published in the CDN, but this is not always the case. In some cases, edge servers are only responsible for a subset of sites hosted in the provider. To mitigate this issue and increase effectiveness, this list should be maintained by following these rules:
 
-* In case a provider seems to behave ideally, still choose 3 valid IPs to probe to keep the tool working for an extended period of time;
+* In case a provider seems to behave ideally, still choose at least 3 valid IPs to probe to keep the tool working for an extended period of time;
 
 * In case a provider does not behave ideally, find a sample of all IPs of a CDN (it's usually provided publicly or can be found via OSINT) and probe them for a set of reasonably "distant" sites (different companies from different countries, etc) that are known to exist in that CDN. Check which IPs responded with the real content from each requested site. If the list is exhaustive, include in the list a single IP that responded for each requested site, or a small number of them. If not, include all IPs that responded with the real content.
 
