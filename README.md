@@ -34,6 +34,8 @@ Nowadays many companies like the cloud. They use the cloud for everything - CDN,
 
 * When a site uses provider A for their CDN but used provider B in the past and didn't clean up properly, knowing B it may be feasible to reach it directly, sometimes bypassing protections that may be in place in A.
 
+* The same may happen in the weird scenario where a site uses two CDNs, one pointing to the other, where the second doesn't have the same protections as the first.
+
 ### What is the SNI and why is it important?
 
 The SNI (Subject Name Indication) is a field provided as an extension of the Client Hello in the TLS handshake. It's a plaintext field that contains the domain name of the site being requested, for the purposes of informing the server the subject of the certificate that is to be used to secure the connection. This is important because the same server may "host" a number of different sites. The other field that informs the server of the site being requested, the Host header of the HTTP request, is sent after the TLS handshake, and thus encrypted. To avoid this "chicken-and-egg" problem we use the SNI - otherwise, the TLS certificate provided by a server would have to specify the subject of all sites hosted in it, which would be hard to manage, or a wildcard, which is not always desired.
